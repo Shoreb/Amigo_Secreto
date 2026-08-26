@@ -89,6 +89,34 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+app.post('/api/verify-password', (req, res) => {
+  const { password } = req.body;
+
+  
+  if (!password) {
+    return res.status(400).json({
+      success: false,
+      message: 'La contraseña es requerida.'
+    });
+  }
+
+  // Comparación con la variable de entorno
+  const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (password === adminPassword) {
+    return res.status(200).json({
+      success: true,
+      message: 'Contraseña correcta. Acceso concedido.'
+    });
+  } else {
+    return res.status(401).json({
+      success: false,
+      message: 'Contraseña incorrecta.'
+    });
+  }
+});
+
 // ==========================================
 // RUTAS PRIVADAS (ADMIN)
 // ==========================================
