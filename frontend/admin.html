@@ -17,20 +17,15 @@
         <section id="loginSection" class="card form-container">
             <div class="card-header">
                 <h2>Panel de administración</h2>
-                <p>Ingresa tus credenciales para continuar.</p>
+                <p>Ingresa la contraseña para continuar.</p>
             </div>
 
             <form id="adminLoginForm" class="modern-form" novalidate>
-                <div class="input-group">
-                    <label for="username">Usuario</label>
-                    <input type="text" id="username" name="username" placeholder="Nombre de administrador" required>
-                    <span class="error-message" id="error-username">Ingresa tu usuario.</span>
-                </div>
-
+                <!-- Solo queda el input de contraseña -->
                 <div class="input-group">
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-                    <span class="error-message" id="error-password">Ingresa tu contraseña.</span>
+                    <span class="error-message" id="error-password">Ingresa la contraseña.</span>
                 </div>
 
                 <div class="form-feedback" id="adminFeedback"></div>
@@ -55,7 +50,6 @@
 
             <div class="action-card">
                 <div class="action-icon">
-                    <!-- Icono SVG de documento/descarga -->
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-main)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>

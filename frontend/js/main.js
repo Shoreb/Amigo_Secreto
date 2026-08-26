@@ -1,8 +1,6 @@
 /**
  * main.js - Lógica del frontend para el registro de participantes.
- * Preparado para futura integración con backend.
  */
-
 const API_BASE_URL = 'http://localhost:3000'; 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,60 +11,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const formFeedback = document.getElementById('formFeedback');
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevenir recarga de página
+        e.preventDefault(); 
 
-        // Resetear estados
+        // Resetear estados visuales
         resetValidation(form);
-        formFeedback.className = 'form-feedback';
+        formFeedback.className = 'form-feedback'; // Oculta el cuadro de mensajes
         formFeedback.textContent = '';
 
-        // Recopilar datos (solo nombre y cantante)
         const formData = {
             fullName: document.getElementById('fullName').value.trim(),
             singer: document.getElementById('singer').value.trim()
         };
 
-        // Validar frontend
         if (!validateForm(formData)) return;
 
         // UI: Estado de carga
         setLoadingState(true);
 
         try {
-            // Aquí se llama a la función que simula el backend
             const response = await registerParticipant(formData);
             
-            // Éxito
+            // Éxito: Mostramos el mensaje verde
             formFeedback.textContent = response.message;
             formFeedback.classList.add('success');
-            form.reset(); // Limpiar formulario
+            form.reset(); 
 
         } catch (error) {
-            // Manejo de errores
-            formFeedback.textContent = error.message || 'Ocurrió un error. Intenta de nuevo.';
-            formFeedback.classList.add('invalid');
+            // ERROR: Mostramos el cuadro rojo con el texto del backend
+            formFeedback.textContent = error.message;
+            formFeedback.classList.add('error'); // <- Aquí activamos el CSS que acabas de agregar
+
+            // Si el error menciona al cantante, resaltamos en rojo ese input
+            const mensajeError = error.message.toLowerCase();
+            if (mensajeError.includes('uso') || mensajeError.includes('cantante') || mensajeError.includes('existe')) {
+                const singerInput = document.getElementById('singer');
+                singerInput.closest('.input-group').classList.add('invalid');
+                document.getElementById('error-singer').textContent = error.message;
+            }
         } finally {
-            // UI: Restaurar botón
             setLoadingState(false);
         }
     });
 
-    /**
-     * Valida los campos vacíos y formatos básicos en el frontend.
-     */
     function validateForm(data) {
         let isValid = true;
-
         if (data.fullName.length < 3) {
             showError('fullName', 'Ingresa tu nombre completo.');
             isValid = false;
         }
-
         if (data.singer.length < 2) {
             showError('singer', 'Ingresa el nombre de un cantante válido.');
             isValid = false;
         }
-
         return isValid;
     }
 
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const input = document.getElementById(inputId);
         const group = input.closest('.input-group');
         const errorSpan = document.getElementById(`error-${inputId}`);
-        
         group.classList.add('invalid');
         errorSpan.textContent = message;
     }
@@ -97,42 +92,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * =======================================================
- * INTEGRACIÓN BACKEND (TODO)
- * =======================================================
+ * Petición real al backend
  */
-
 async function registerParticipant(data) {
     try {
-        // Hacemos la petición POST al backend
         const response = await fetch(`${API_BASE_URL}/api/participantes`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            // Mapeamos los nombres del frontend a lo que espera el backend
             body: JSON.stringify({
                 nombre: data.fullName,
                 cantante: data.singer
             })
         });
 
-        // Convertimos la respuesta a JSON
+        // Intentamos leer la respuesta del backend
         const result = await response.json();
 
-        // Si el backend devuelve un error (ej. 400 Bad Request)
+        // Si hay un error (ej. status 400 por cantante repetido)
         if (!response.ok) {
-            throw new Error(result.error || 'Ocurrió un error al registrar.');
+            // Buscamos el texto del error en cualquiera de estos campos comunes
+            const textoError = result.error || result.mensaje || result.message || 'Ocurrió un error al registrar.';
+            throw new Error(textoError); 
         }
 
-        // Si es exitoso (201 Created)
         return { 
             status: 'success', 
-            message: result.mensaje 
+            message: result.mensaje || '¡Registrado con éxito!'
         };
 
     } catch (error) {
-        // Capturamos problemas de red o errores lanzados arriba
-        throw new Error(error.message || 'Error de conexión con el servidor.');
+        // Esto atrapa tanto el "throw new Error" de arriba como problemas de servidor caído o CORS
+        if (error.message === 'Failed to fetch') {
+            throw new Error('No se pudo conectar al servidor. Revisa tu conexión.');
+        }
+        throw new Error(error.message);
     }
 }

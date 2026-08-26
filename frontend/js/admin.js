@@ -27,13 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         adminFeedback.textContent = '';
 
         const credentials = {
-            username: document.getElementById('username').value.trim(),
             password: document.getElementById('password').value
         };
 
-        if (!credentials.username || !credentials.password) {
-            if(!credentials.username) document.getElementById('username').closest('.input-group').classList.add('invalid');
-            if(!credentials.password) document.getElementById('password').closest('.input-group').classList.add('invalid');
+        // Validar que el campo no esté vacío
+        if (!credentials.password) {
+            document.getElementById('password').closest('.input-group').classList.add('invalid');
             return;
         }
 
@@ -62,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             adminFeedback.textContent = error.message;
             adminFeedback.classList.add('invalid');
             adminFeedback.style.display = 'block';
+            adminFeedback.style.color = 'var(--color-error)';
+            adminFeedback.style.backgroundColor = 'rgba(211, 47, 47, 0.1)';
         } finally {
             loginBtn.disabled = false;
             btnText.classList.remove('hidden');
@@ -76,26 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
         loginSection.classList.remove('hidden');
     });
 
-    // Manejo de la Descarga del Excel (CSV)
+    // Manejo de la Descarga del Excel
     downloadExcelBtn.addEventListener('click', () => {
         downloadParticipantsFile();
     });
 });
 
 /**
- * Simulación de autenticación
+ * Simulación de autenticación (Solo Contraseña)
  */
 async function loginAdmin(credentials) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            // Usuario por defecto para pruebas
-            if (credentials.username === 'admin') {
+            // Contraseña por defecto para pruebas
+            if (credentials.password === '123456') {
                 resolve({ 
                     status: 'success', 
                     message: 'Ingreso exitoso. Cargando panel...'
                 });
             } else {
-                reject(new Error('Credenciales incorrectas.'));
+                reject(new Error('Contraseña incorrecta.'));
             }
         }, 1200);
     });
@@ -103,15 +104,11 @@ async function loginAdmin(credentials) {
 
 /**
  * =======================================================
- * GENERADOR DE ARCHIVO (EXCEL/CSV) - JAVASCRIPT VANILLA
+ * DESCARGA DEL EXCEL
  * =======================================================
- * En una etapa posterior, este archivo podría ser generado 
- * directamente por tu backend en Python y devuelto como un Blob.
  */
 const API_BASE_URL = 'http://localhost:3000'; // Debe ser la misma ruta de tu backend
 
 function downloadParticipantsFile() {
-    // Al redirigir a esta ruta, el navegador detectará el archivo y comenzará la descarga
-    // del Amigo_Secreto_Participantes.xlsx generado por el servidor.
     window.location.href = `${API_BASE_URL}/api/exportar-excel`;
 }
