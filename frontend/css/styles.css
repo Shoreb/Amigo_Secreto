@@ -2,23 +2,29 @@
    VARIABLES & SETUP
    ========================================= */
 :root {
-    /* Paleta de colores solicitada */
-    --color-main: #681D44;       /* Pompadour */
-    --color-emphasis: #95071F;   /* Old Wine */
-    --color-accent-1: #CA7C89;   /* Violet Orchid */
-    --color-accent-2: #DA8C9A;   /* Rambling Rose */
-    --color-surface: #CFC5CA;    /* Piano Grey Rose */
+    /* Paleta de colores */
+    --color-main: #681D44;       
+    --color-emphasis: #95071F;   
+    --color-accent-1: #CA7C89;   
+    --color-accent-2: #DA8C9A;   
+    --color-surface: #CFC5CA;    
     
     /* Colores funcionales */
-    --color-bg: #FCFAFB;         /* Blanco con toque sutil cálido */
+    --color-bg: #FCFAFB;         
     --color-card: #FFFFFF;
     --color-text: #2D2428;
     --color-text-muted: #6B5E64;
     --color-success: #2E7D32;
     --color-error: #D32F2F;
     
-    /* Tipografía y Espaciado */
-    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* 2. AQUÍ PONES EL NOMBRE DE TU FUENTE DE GOOGLE FONTS */
+    /* Fuente para los títulos (Romántica/Elegante) */
+    --font-title: 'Parisienne', cursive; 
+    
+    /* Fuente para textos legibles, botones e inputs (Limpia) */
+    --font-body: 'Quicksand', sans-serif;    
+    
+    /* Estilos base */
     --border-radius: 16px;
     --transition: all 0.3s ease;
     --shadow-soft: 0 10px 30px rgba(104, 29, 68, 0.08);
@@ -31,7 +37,7 @@
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-body); /* Aplica la fuente limpia a todo por defecto */
     background-color: var(--color-bg);
     color: var(--color-text);
     min-height: 100vh;
@@ -41,6 +47,11 @@ body {
     overflow-x: hidden;
 }
 
+/* 3. APLICAMOS LA FUENTE ROMÁNTICA A LOS TÍTULOS */
+h1, h2, h3, .hero-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+}
 /* =========================================
    BACKGROUND DECORATIONS (Microinteracciones)
    ========================================= */
