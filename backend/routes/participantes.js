@@ -94,7 +94,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/api/verify-password', (req, res) => {
+router.post('/verify-password', (req, res) => {
   const { password } = req.body;
 
   
