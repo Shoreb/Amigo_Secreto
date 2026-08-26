@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Decoración de fondo -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
     <main class="container admin-container">
-        <section class="card form-container">
+        
+        <!-- SECCIÓN DE LOGIN -->
+        <section id="loginSection" class="card form-container">
             <div class="card-header">
                 <h2>Panel de administración</h2>
                 <p>Ingresa tus credenciales para continuar.</p>
@@ -30,7 +36,7 @@
                 <div class="form-feedback" id="adminFeedback"></div>
 
                 <button type="submit" class="btn-primary" id="loginBtn">
-                    <span class="btn-text">Ingresar</span>
+                    <span class="btn-text">Iniciar sesión</span>
                     <span class="loader hidden"></span>
                 </button>
             </form>
@@ -39,6 +45,37 @@
                 <a href="index.html" class="back-link">← Volver al inicio</a>
             </div>
         </section>
+
+        <!-- SECCIÓN DE DASHBOARD (Oculta por defecto) -->
+        <section id="dashboardSection" class="card hidden">
+            <div class="card-header">
+                <h2>Panel de Control</h2>
+                <p>Gestión del Amigo Secreto</p>
+            </div>
+
+            <div class="action-card">
+                <div class="action-icon">
+                    <!-- Icono SVG de documento/descarga -->
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-main)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <polyline points="9 15 12 18 15 15"></polyline>
+                    </svg>
+                </div>
+                <h3>Conoce los registros</h3>
+                <p>Descarga la lista completa de todos los jugadores inscritos para preparar la dinámica y realizar el sorteo.</p>
+                
+                <button id="downloadExcelBtn" class="btn-primary">
+                    <span class="btn-text">Descargar Registros (Excel)</span>
+                </button>
+            </div>
+            
+            <div class="back-link-container">
+                <a href="#" id="logoutBtn" class="back-link">Cerrar sesión</a>
+            </div>
+        </section>
+
     </main>
 
     <script src="js/admin.js"></script>
