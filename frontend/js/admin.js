@@ -1,20 +1,27 @@
 /**
  * admin.js - Lógica del frontend para el panel administrativo.
- * Preparado para futura integración con sistema de autenticación (JWT/Sesiones).
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('adminLoginForm');
+    // Elementos del Login
+    const loginForm = document.getElementById('adminLoginForm');
+    const loginSection = document.getElementById('loginSection');
     const loginBtn = document.getElementById('loginBtn');
     const btnText = loginBtn.querySelector('.btn-text');
     const loader = loginBtn.querySelector('.loader');
     const adminFeedback = document.getElementById('adminFeedback');
 
-    form.addEventListener('submit', async (e) => {
+    // Elementos del Dashboard
+    const dashboardSection = document.getElementById('dashboardSection');
+    const downloadExcelBtn = document.getElementById('downloadExcelBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Manejo del Login
+    loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Resetear estados
-        const groups = form.querySelectorAll('.input-group');
+        const groups = loginForm.querySelectorAll('.input-group');
         groups.forEach(group => group.classList.remove('invalid'));
         adminFeedback.className = 'form-feedback';
         adminFeedback.textContent = '';
@@ -24,18 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             password: document.getElementById('password').value
         };
 
-        // Validación básica vacía
-        let isValid = true;
-        if (!credentials.username) {
-            document.getElementById('username').closest('.input-group').classList.add('invalid');
-            isValid = false;
+        if (!credentials.username || !credentials.password) {
+            if(!credentials.username) document.getElementById('username').closest('.input-group').classList.add('invalid');
+            if(!credentials.password) document.getElementById('password').closest('.input-group').classList.add('invalid');
+            return;
         }
-        if (!credentials.password) {
-            document.getElementById('password').closest('.input-group').classList.add('invalid');
-            isValid = false;
-        }
-
-        if (!isValid) return;
 
         // UI: Estado de carga
         loginBtn.disabled = true;
@@ -43,49 +43,75 @@ document.addEventListener('DOMContentLoaded', () => {
         loader.classList.remove('hidden');
 
         try {
-            // Llamada simulada al backend
             const response = await loginAdmin(credentials);
             
+            // Si el login es exitoso, hacemos la transición al Dashboard
             adminFeedback.textContent = response.message;
             adminFeedback.classList.add('success');
             
-            // Simular redirección al dashboard (panel de sorteo y usuarios)
-            // window.location.href = '/dashboard.html';
+            setTimeout(() => {
+                loginSection.classList.add('hidden');
+                dashboardSection.classList.remove('hidden');
+                // Limpiar formulario para cuando se cierre sesión
+                loginForm.reset(); 
+                adminFeedback.className = 'form-feedback';
+                adminFeedback.textContent = '';
+            }, 800);
 
         } catch (error) {
             adminFeedback.textContent = error.message;
+            adminFeedback.classList.add('invalid');
             adminFeedback.style.display = 'block';
-            adminFeedback.style.color = 'var(--color-error)';
-            adminFeedback.style.backgroundColor = 'rgba(211, 47, 47, 0.1)';
         } finally {
-            // Restaurar UI
             loginBtn.disabled = false;
             btnText.classList.remove('hidden');
             loader.classList.add('hidden');
         }
     });
+
+    // Manejo del Cierre de sesión
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dashboardSection.classList.add('hidden');
+        loginSection.classList.remove('hidden');
+    });
+
+    // Manejo de la Descarga del Excel (CSV)
+    downloadExcelBtn.addEventListener('click', () => {
+        downloadParticipantsFile();
+    });
 });
 
 /**
- * =======================================================
- * INTEGRACIÓN BACKEND & AUTENTICACIÓN (TODO)
- * =======================================================
- * Aquí conectarás el endpoint de login de tu backend para 
- * obtener el Token JWT o inicializar la sesión.
+ * Simulación de autenticación
  */
 async function loginAdmin(credentials) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            // Simulación: Si pones 'admin' entra, si no, da error.
+            // Usuario por defecto para pruebas
             if (credentials.username === 'admin') {
                 resolve({ 
                     status: 'success', 
-                    message: 'Ingreso exitoso. Redirigiendo al panel... 🔒',
-                    token: 'fake-jwt-token'
+                    message: 'Ingreso exitoso. Cargando panel...'
                 });
             } else {
                 reject(new Error('Credenciales incorrectas.'));
             }
         }, 1200);
     });
+}
+
+/**
+ * =======================================================
+ * GENERADOR DE ARCHIVO (EXCEL/CSV) - JAVASCRIPT VANILLA
+ * =======================================================
+ * En una etapa posterior, este archivo podría ser generado 
+ * directamente por tu backend en Python y devuelto como un Blob.
+ */
+const API_BASE_URL = 'http://localhost:3000'; // Debe ser la misma ruta de tu backend
+
+function downloadParticipantsFile() {
+    // Al redirigir a esta ruta, el navegador detectará el archivo y comenzará la descarga
+    // del Amigo_Secreto_Participantes.xlsx generado por el servidor.
+    window.location.href = `${API_BASE_URL}/api/exportar-excel`;
 }

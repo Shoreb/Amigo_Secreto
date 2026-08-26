@@ -3,6 +3,8 @@
  * Preparado para futura integración con backend.
  */
 
+const API_BASE_URL = 'http://localhost:3000'; 
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registerForm');
     const submitBtn = document.getElementById('submitBtn');
@@ -99,15 +101,38 @@ document.addEventListener('DOMContentLoaded', () => {
  * INTEGRACIÓN BACKEND (TODO)
  * =======================================================
  */
+
 async function registerParticipant(data) {
-    // SIMULACIÓN DE RETRASO DE RED (Quitar en producción)
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            // Respuesta simulada exitosa
-            resolve({ 
-                status: 'success', 
-                message: '¡Tus datos fueron registrados correctamente! 🎉' 
-            });
-        }, 1500);
-    });
+    try {
+        // Hacemos la petición POST al backend
+        const response = await fetch(`${API_BASE_URL}/api/participantes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            // Mapeamos los nombres del frontend a lo que espera el backend
+            body: JSON.stringify({
+                nombre: data.fullName,
+                cantante: data.singer
+            })
+        });
+
+        // Convertimos la respuesta a JSON
+        const result = await response.json();
+
+        // Si el backend devuelve un error (ej. 400 Bad Request)
+        if (!response.ok) {
+            throw new Error(result.error || 'Ocurrió un error al registrar.');
+        }
+
+        // Si es exitoso (201 Created)
+        return { 
+            status: 'success', 
+            message: result.mensaje 
+        };
+
+    } catch (error) {
+        // Capturamos problemas de red o errores lanzados arriba
+        throw new Error(error.message || 'Error de conexión con el servidor.');
+    }
 }
