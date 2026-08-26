@@ -107,7 +107,7 @@ async function loginAdmin(credentials) {
  * DESCARGA DEL EXCEL
  * =======================================================
  */
-const API_BASE_URL = 'http://localhost:3000'; // Debe ser la misma ruta de tu backend
+const API_BASE_URL = 'https://amigo-secreto-ewot.onrender.com'; // Debe ser la misma ruta de tu backend
 
 function downloadParticipantsFile() {
     window.location.href = `${API_BASE_URL}/api/exportar-excel`;

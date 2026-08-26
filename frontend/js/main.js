@@ -1,7 +1,7 @@
 /**
  * main.js - Lógica del frontend para el registro de participantes.
  */
-const API_BASE_URL = 'http://localhost:3000'; 
+const API_BASE_URL = 'https://amigo-secreto-ewot.onrender.com'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registerForm');
