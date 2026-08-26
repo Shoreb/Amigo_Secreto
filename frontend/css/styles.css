@@ -353,6 +353,38 @@ h1, h2, h3, .hero-title {
 }
 
 /* =========================================
+   TOGGLE PASSWORD (OJITO)
+   ========================================= */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px; /* Espacio para que el texto no pise el ojito */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    color: var(--color-main);
+}
+
+/* =========================================
    ANIMATIONS
    ========================================= */
 @keyframes fadeInDown {
