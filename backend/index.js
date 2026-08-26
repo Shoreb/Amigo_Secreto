@@ -5,8 +5,13 @@ const cors = require('cors');
 const participantesRoutes = require('./routes/participantes');
 
 const app = express();
+const corsOptions = {
+  origin: 'https://amigo-secreto-kappa-seven.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true 
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 
