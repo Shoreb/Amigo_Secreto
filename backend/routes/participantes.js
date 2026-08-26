@@ -4,7 +4,11 @@ const { redis, REDIS_KEY } = require('../config/redis');
 
 const router = express.Router();
 
-const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'admin123secret';
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY ;
+if (!ADMIN_API_KEY) {
+  console.error('Error: La variable de entorno ADMIN_API_KEY no está definida.');
+  process.exit(1);
+}
 
 // Middleware para proteger rutas de administrador
 const protegerAdmin = (req, res, next) => {
@@ -90,7 +94,7 @@ router.get('/', async (req, res) => {
 });
 
 
-app.post('/api/verify-password', (req, res) => {
+router.post('/api/verify-password', (req, res) => {
   const { password } = req.body;
 
   
@@ -102,7 +106,7 @@ app.post('/api/verify-password', (req, res) => {
   }
 
   // Comparación con la variable de entorno
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminPassword = process.env.ADMIN_API_KEY ;
 
   if (password === adminPassword) {
     return res.status(200).json({
