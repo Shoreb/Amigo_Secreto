@@ -1,34 +1,34 @@
 const chList = {
   "TAYSON": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Mike_Tyson_2019_by_Glenn_Francis.jpg",
-  "MIGUEL MATEUS": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Miguel_Mateos_en_2017.jpg",
+  "MIGUEL MATEUS": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
   "FRIDA KHALO": "https://upload.wikimedia.org/wikipedia/commons/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
-  "JOE ARROYO": "https://upload.wikimedia.org/wikipedia/commons/b/be/Joe_Arroyo.jpg",
-  "COCO CHANEL": "https://upload.wikimedia.org/wikipedia/commons/7/72/Coco_Chanel_in_1920.jpg",
+  "JOE ARROYO": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
+  "COCO CHANEL": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80",
   "MICKEY MOUSE": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Mickey_Mouse_Head.svg",
-  "RUBÉN BLADES": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Ruben_Blades_2012.jpg",
+  "RUBÉN BLADES": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80",
   "STEPHEN HAWKING": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg",
-  "DIOMEDES DIAZ 2": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Diomedes_Diaz.jpg",
+  "DIOMEDES DIAZ 2": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
   "NN": "",
   "N.A": "",
-  "JASON STATHAM": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Jason_Statham_2018.jpg",
-  "RICARDO ARJONA": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ricardo_Arjona_2012.jpg",
+  "JASON STATHAM": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+  "RICARDO ARJONA": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
   "CARLOS CASTAÑO": "",
-  "BEYONCE": "https://upload.wikimedia.org/wikipedia/commons/1/17/Beyonc%C3%A9_at_The_Lion_King_premiere_2019.jpg",
-  "KANY GARCÍA": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Kany_Garcia_2019.jpg",
+  "BEYONCE": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+  "KANY GARCÍA": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
   "BATMAN": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Batman_Comic_Logo.svg",
-  "DIOMEDES DÍAZ 1": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Diomedes_Diaz.jpg",
-  "HERENCIA DE TIMBIQUI": "https://upload.wikimedia.org/wikipedia/commons/3/30/Herencia_de_Timbiqui.jpg",
+  "DIOMEDES DÍAZ 1": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
+  "HERENCIA DE TIMBIQUI": "https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?auto=format&fit=crop&w=600&q=80",
   "RAFAEL ESCALONA": "",
   "MARIBEL MADRIGAL": "",
-  "CELIA CRUZ": "https://upload.wikimedia.org/wikipedia/commons/2/22/Celia_Cruz_1957.jpg",
+  "CELIA CRUZ": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
   "GOKU": "",
   "BOOGALOO": "",
-  "ANA GABRIEL": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Ana_Gabriel_2014.jpg",
+  "ANA GABRIEL": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
   "MAFALDA": "https://upload.wikimedia.org/wikipedia/commons/0/08/Estatua_de_Mafalda_en_San_Telmo.jpg",
   "LA CELOSA DE CHEPE FORTUNA": "",
-  "SOFÍA VERGARA": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Sofia_Vergara_2014.jpg"
+  "SOFÍA VERGARA": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80"
 };
 
-module.exports={
-    chList
-}
+module.exports = {
+  chList
+};
