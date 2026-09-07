@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let tempFullName = ''; 
 
-    // 1. Obtener y renderizar la chList (diccionario de personajes e imágenes) desde el backend
+    // 1. LLAMAR A LA FUNCIÓN AL CARGAR LA PÁGINA (¡Esto faltaba!)
+    cargarPersonajesConImagenes();
+
+    // Función para obtener los personajes del servidor de tu compañero
     async function cargarPersonajesConImagenes() {
         try {
-            // Endpoint oficial proporcionado por tu compañero
             const response = await fetch(`${API_BASE_URL}/api/characters/get`);
             
             if (!response.ok) throw new Error('No se pudo cargar la lista de personajes.');
@@ -37,47 +39,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Función unificada para pintar las tarjetas con sus avatares
     function renderizarTarjetasPersonajes(chList) {
         charactersGrid.innerHTML = ''; // Limpiar grilla
 
-        // Recorremos el diccionario dentro de data.personajes
         Object.entries(chList).forEach(([nombrePersonaje, imageUrl]) => {
             const card = document.createElement('div');
             card.className = 'character-profile-card';
             
-            // Si la URL está vacía (""), asignamos una imagen por defecto o un icono genérico
+            // Si la URL está vacía (""), asignamos un icono por defecto
             const avatarSrc = imageUrl && imageUrl.trim() !== "" 
                 ? imageUrl 
-                : 'https://api.iconify.design/lucide:user.svg'; // Icono por defecto elegante si no hay foto
+                : 'https://api.iconify.design/lucide:user.svg';
 
             card.innerHTML = `
                 <img src="${avatarSrc}" alt="${nombrePersonaje}" class="character-avatar" loading="lazy" onerror="this.src='https://api.iconify.design/lucide:user.svg'">
                 <span class="character-name">${nombrePersonaje}</span>
             `;
             
-            // Evento al hacer clic en la tarjeta del personaje
-            card.addEventListener('click', () => {
-                seleccionarPersonajeYEnviar(nombrePersonaje);
-            });
-
-            charactersGrid.appendChild(card);
-        });
-    }
-
-    function renderizarTarjetasPersonajes(chList) {
-        charactersGrid.innerHTML = ''; // Limpiar grilla
-
-        // Recorremos el diccionario chList (Clave: Nombre, Valor: URL Imagen)
-        Object.entries(chList).forEach(([nombrePersonaje, imageUrl]) => {
-            const card = document.createElement('div');
-            card.className = 'character-profile-card';
-            
-            card.innerHTML = `
-                <img src="${imageUrl || 'https://via.placeholder.com/50'}" alt="${nombrePersonaje}" class="character-avatar" loading="lazy" onerror="this.src='https://via.placeholder.com/50'">
-                <span class="character-name">${nombrePersonaje}</span>
-            `;
-            
-            // Evento al hacer clic en la tarjeta del personaje
+            // Evento al hacer clic en la tarjeta
             card.addEventListener('click', () => {
                 seleccionarPersonajeYEnviar(nombrePersonaje);
             });
@@ -106,14 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Transición a la vista amplia de personajes
         step1Section.classList.add('hidden');
         step2Section.classList.remove('hidden');
-        mainContainer.classList.add('wide-mode'); // Amplía el contenedor visualmente
+        mainContainer.classList.add('wide-mode'); 
     });
 
     // 3. Botón para volver atrás
     backToFormBtn.addEventListener('click', () => {
         step2Section.classList.add('hidden');
         step1Section.classList.remove('hidden');
-        mainContainer.classList.remove('wide-mode'); // Restaura el ancho original
+        mainContainer.classList.remove('wide-mode'); 
         formFeedbackStep2.textContent = '';
     });
 
