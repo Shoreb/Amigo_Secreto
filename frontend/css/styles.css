@@ -484,6 +484,122 @@ h1, h2, h3, .hero-title {
 }
 
 /* =========================================
+   VISTA DE SELECCIÓN DE PERSONAJES (GRID)
+   ========================================= */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 1rem;
+}
+
+.character-card {
+    background-color: var(--color-bg);
+    border: 1.5px solid var(--color-surface);
+    border-radius: 10px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-main);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+}
+
+.character-card:hover {
+    background-color: var(--color-main);
+    color: #FFFFFF;
+    border-color: var(--color-main);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(104, 29, 68, 0.2);
+}
+
+/* Scrollbar sutil para la lista */
+.characters-grid::-webkit-scrollbar {
+    width: 6px;
+}
+.characters-grid::-webkit-scrollbar-thumb {
+    background-color: var(--color-surface);
+    border-radius: 4px;
+}
+
+/* =========================================
+   CONTENEDOR AMPLIO PARA PERSONAJES CON IMAGEN
+   ========================================= */
+.container.wide-mode {
+    max-width: 850px; /* Amplía la pantalla solo en el paso 2 */
+}
+
+.card.wide-card {
+    max-width: 100%;
+}
+
+/* Grilla de tarjetas de personajes */
+.characters-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    max-height: 480px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+/* Tarjeta individual del personaje */
+.character-profile-card {
+    background-color: var(--color-bg);
+    border: 1.5px solid var(--color-surface);
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.character-profile-card:hover {
+    border-color: var(--color-main);
+    background-color: #FFF5F7;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(104, 29, 68, 0.12);
+}
+
+/* Imagen del personaje */
+.character-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-accent-1);
+    background-color: #EFE6E9;
+    flex-shrink: 0;
+}
+
+/* Nombre del personaje en la tarjeta */
+.character-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-main);
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+/* Scrollbar estilizada */
+.characters-grid-cards::-webkit-scrollbar {
+    width: 6px;
+}
+.characters-grid-cards::-webkit-scrollbar-thumb {
+    background-color: var(--color-surface);
+    border-radius: 4px;
+}
+/* =========================================
    ANIMATIONS
    ========================================= */
 @keyframes fadeInDown {

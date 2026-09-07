@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amigo Secreto | Conecta y Sorprende</title>
     
-    <!-- 1. AQUÍ PONES EL ENLACE DE GOOGLE FONTS -->
-    <!-- Actualmente tiene Dancing Script (títulos) y Quicksand (textos) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Corazones flotantes de fondo -->
     <div class="floating-hearts" aria-hidden="true">
         <span class="heart">❤</span>
         <span class="heart">❤</span>
@@ -22,12 +21,12 @@
         <span class="heart">❤</span>
         <span class="heart">❤</span>
     </div>
-    
-    <!-- Decoración de fondo -->
+
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
 
-    <main class="container">
+    <!-- Contenedor principal con clase dinámica para expandirse en el paso 2 -->
+    <main class="container" id="mainContainer">
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-icon">
@@ -41,33 +40,47 @@
             <p class="hero-subtitle">Conecta, sorprende y descubre quién será tu amigo secreto.</p>
         </section>
 
-        <!-- Formulario de Registro -->
-        <section class="card form-container">
+        <!-- VISTA 1: FORMULARIO DE DATOS -->
+        <section id="step1Section" class="card form-container">
             <div class="card-header">
                 <h2>Únete al juego</h2>
-                <p>Ingresa tus datos para participar en el amigo secreto.</p>
+                <p>Ingresa tus datos para continuar con la selección.</p>
             </div>
 
-            <form id="registerForm" class="modern-form" novalidate>
+            <form id="userDataForm" class="modern-form" novalidate>
                 <div class="input-group">
                     <label for="fullName">Nombre y apellido</label>
                     <input type="text" id="fullName" name="fullName" placeholder="Ej. María Pérez" required autocomplete="name">
                     <span class="error-message" id="error-fullName">Este campo es obligatorio.</span>
                 </div>
 
-                <div class="input-group">
-                    <label for="singer">Cantante famoso</label>
-                    <input type="text" id="singer" name="singer" placeholder="Ej. Shakira" required>
-                    <span class="error-message" id="error-singer">Este campo es obligatorio.</span>
-                </div>
+                <div class="form-feedback" id="formFeedbackStep1"></div>
 
-                <div class="form-feedback" id="formFeedback"></div>
-
-                <button type="submit" class="btn-primary" id="submitBtn">
-                    <span class="btn-text">Enviar mis datos</span>
-                    <span class="loader hidden"></span>
+                <button type="submit" class="btn-primary" id="goCharactersBtn">
+                    <span class="btn-text">Seleccionar personaje →</span>
                 </button>
             </form>
+        </section>
+
+        <!-- VISTA 2: SELECCIÓN DE PERSONAJES (Oculta por defecto, contenedor amplio) -->
+        <section id="step2Section" class="card form-container hidden wide-card">
+            <div class="card-header">
+                <h2>Elige tu personaje</h2>
+                <p>Haz clic sobre la tarjeta de tu personaje favorito.</p>
+            </div>
+
+            <!-- Grilla amplia de tarjetas de personajes -->
+            <div id="charactersGrid" class="characters-grid-cards">
+                <!-- Se inyectará dinámicamente con JS a partir de chList -->
+            </div>
+
+            <div class="form-feedback" id="formFeedbackStep2"></div>
+
+            <div class="back-link-container" style="margin-top: 1.5rem;">
+                <button type="button" id="backToFormBtn" class="admin-link" style="background: none; border: none; cursor: pointer;">
+                    ← Volver atrás
+                </button>
+            </div>
         </section>
     </main>
 
