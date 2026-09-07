@@ -64,11 +64,31 @@
         </section>
 
         <!-- VISTA 2: SELECCIÓN DE PERSONAJES (Oculta por defecto, contenedor amplio) -->
-        <section id="step2Section" class="card form-container hidden wide-card">
-            <div class="card-header">
-                <h2>Elige tu personaje</h2>
-                <p>Haz clic sobre la tarjeta de tu personaje favorito.</p>
-            </div>
+        <!-- Reemplaza la sección step2Section en tu index.html por esta para incluir el mensaje informativo -->
+<section id="step2Section" class="card form-container hidden wide-card">
+    <div class="card-header">
+        <h2>Elige tu personaje</h2>
+        <p>Haz clic sobre la tarjeta de tu personaje favorito.</p>
+    </div>
+
+    <!-- Grilla amplia de tarjetas de personajes -->
+    <div id="charactersGrid" class="characters-grid-cards">
+        <!-- Se inyectará dinámicamente con JS -->
+    </div>
+
+    <div class="form-feedback" id="formFeedbackStep2"></div>
+
+    <!-- Mensaje de experiencia de usuario (UX) -->
+    <div class="ux-helper-note">
+        <p>¿No encuentras tu personaje favorito? Si no aparece en la lista, es porque ya ha sido seleccionado por otra persona.</p>
+    </div>
+
+    <div class="back-link-container" style="margin-top: 1.2rem;">
+        <button type="button" id="backToFormBtn" class="admin-link" style="background: none; border: none; cursor: pointer;">
+            ← Volver atrás
+        </button>
+    </div>
+</section>
 
             <!-- Grilla amplia de tarjetas de personajes -->
             <div id="charactersGrid" class="characters-grid-cards">

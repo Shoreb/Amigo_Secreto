@@ -600,6 +600,25 @@ h1, h2, h3, .hero-title {
     border-radius: 4px;
 }
 /* =========================================
+   MENSAJE DE AYUDA / UX (PERSONAJES)
+   ========================================= */
+.ux-helper-note {
+    background-color: rgba(202, 124, 137, 0.08);
+    border-left: 3px solid var(--color-accent-1);
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.ux-helper-note p {
+    font-size: 0.85rem;
+    color: var(--color-main);
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 500;
+}
+/* =========================================
    ANIMATIONS
    ========================================= */
 @keyframes fadeInDown {
