@@ -1,4 +1,4 @@
-const chListconst = {
+const chList = {
   "TAYSON": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Mike_Tyson_2019_by_Glenn_Francis.jpg",
   "MIGUEL MATEUS": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Miguel_Mateos_en_2017.jpg",
   "FRIDA KHALO": "https://upload.wikimedia.org/wikipedia/commons/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
