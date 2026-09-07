@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function cargarPersonajesConImagenes() {
         try {
             // Endpoint oficial proporcionado por tu compañero
-            const response = await fetch(`${API_BASE_URL}/api/characters/get-characters`);
+            const response = await fetch(`${API_BASE_URL}/api/characters/get`);
             
             if (!response.ok) throw new Error('No se pudo cargar la lista de personajes.');
             
