@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const participantesRoutes = require('./routes/participantes');
+const charactersRouter = require('./routes/characters');
 
 const app = express();
 const corsOptions = {
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/participantes', participantesRoutes);
+app.use('/api/characters', charactersRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
