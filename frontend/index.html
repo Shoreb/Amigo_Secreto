@@ -41,7 +41,7 @@
             <p class="hero-subtitle">Conecta, sorprende y descubre quién será tu amigo secreto.</p>
         </section>
 
-        <!-- VISTA 1: FORMULARIO DE DATOS -->
+        <!-- VISTA 1: FORMULARIO DE DATOS (Sin el enlace de volver atrás) -->
         <section id="step1Section" class="card form-container">
             <div class="card-header">
                 <h2>Únete al juego</h2>
@@ -61,6 +61,32 @@
                     <span class="btn-text">Seleccionar personaje →</span>
                 </button>
             </form>
+        </section>
+
+        <!-- VISTA 2: SELECCIÓN DE PERSONAJES (Aquí SÍ va el botón de volver atrás) -->
+        <section id="step2Section" class="card form-container hidden wide-card">
+            <div class="card-header">
+                <h2>Elige tu personaje</h2>
+                <p>Haz clic sobre la tarjeta de tu personaje favorito.</p>
+            </div>
+
+            <!-- Grilla amplia de tarjetas de personajes -->
+            <div id="charactersGrid" class="characters-grid-cards">
+                <!-- Se inyectará dinámicamente con JS -->
+            </div>
+
+            <div class="form-feedback" id="formFeedbackStep2"></div>
+
+            <!-- Mensaje de experiencia de usuario (UX) -->
+            <div class="ux-helper-note">
+                <p>💡 ¿No encuentras tu personaje favorito? Si no aparece en la lista, es porque ya ha sido seleccionado por otra persona.</p>
+            </div>
+
+            <div class="back-link-container" style="margin-top: 1.2rem;">
+                <button type="button" id="backToFormBtn" class="admin-link" style="background: none; border: none; cursor: pointer;">
+                    ← Volver atrás
+                </button>
+            </div>
         </section>
 
         <!-- VISTA 2: SELECCIÓN DE PERSONAJES (Oculta por defecto, contenedor amplio) -->
