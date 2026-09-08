@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788836950/banner_aeab6t.png" alt="Amigo Secreto Banner">
+  <img src="https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788837531/Banner_jakkpd.png" alt="Amigo Secreto Banner">
 </p>
 
-# 💌 𝓐𝓶𝓲𝓰𝓸 𝓢𝓮𝓬𝓻𝓮𝓽𝓸 — Dınάmıcα de Amor ч Amıstαd . ݁₊ ⊹ . 
+# 💌 𝓐𝓶𝓲𝓰𝓸 𝓢𝓮𝓬𝓻𝓮𝓽𝓸 — Dınάmıcα de Amor ч Amıstαd . ݁₊ ⊹ 
 
 Aplicación web ligera, moderna y atractiva diseñada específicamente para gestionar la dinámica del tradicional juego de **"Amigo Secreto"** con temática de Amor y Amistad.  
 
