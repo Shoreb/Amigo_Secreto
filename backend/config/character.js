@@ -1,10 +1,10 @@
 const chList = {
   "TAYSON": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Mike_Tyson_2019_by_Glenn_Francis.jpg",
-  "MIGUEL MATEUS": "https://www.karacteragency.pt/en/people/miguel-mateus/",
+  "MIGUEL MATEUS": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/208_b6uxi2.webp",
   "FRIDA KHALO": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/208_b6uxi2.webp",
   "JOE ARROYO": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/joe_arroyo_rvlaqr.jpg",
-  "COCO CHANEL": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788833944/goku_qhpqiq.jpg",
-  "MICKEY MOUSE": "https://toppng.com/uploads/preview/mickey-mouse-vector-free-download-11574217307wizdbrc6rj.png",
+  "COCO CHANEL": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788833944/cc_wnxi1x.jpg",
+  "MICKEY MOUSE": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788834309/micky_t2jsc7.png",
   "RUBÉN BLADES": "https://festivalgabo.com/wp-content/uploads/2019/01/Ruben-Blades-1280x800-2.jpg",
   "STEPHEN HAWKING": "https://www.premiosfronterasdelconocimiento.es/wp-content/uploads/sites/2/2017/05/FBBVA-15-ciencia-Stephen-Hawking.jpg",
   "DIOMEDES DIAZ 2": "https://estampasvallenatas.com/wp-content/uploads/2024/09/diomedes-diaz-el-cacique-de-la-junta-supo-ganarse-el-mas-amplio-espacio-en-la-musica-vallenata.jpg?w=2014",
@@ -21,10 +21,10 @@ const chList = {
   "RAFAEL ESCALONA": "https://revistagramainternacional.com/wp-content/uploads/2025/05/EL-INMORTAL-Rafael-Escalona-el-compositor-mas-grande-de-la-historia-de-la-musica-vallenata.jpg",
   "MARIBEL MADRIGAL": "https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2021/11/07/1949470743-disney-2021-animation-animated-encanto-film-musical-movie-mirabel.jpeg",
   "CELIA CRUZ": "https://heraldodemexico.com.mx/u/fotografias/m/2022/7/15/f768x1-542918_543045_5050.jpeg",
-  "GOKU": "https://www.transparentpng.com/thumb/goku/AEFVIp-goku-transparent.png",
-  "BOOGALOO": "",
+  "GOKU": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788833944/goku_qhpqiq.jpg",
+  "BOOGALOO": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788834238/images_msexhf.jpg",
   "ANA GABRIEL": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/655203445787413377_bwtpve.jpg",
-  "MAFALDA": "https://upload.wikimedia.org/wikipedia/commons/0/08/Estatua_de_Mafalda_en_San_Telmo.jpg",
+  "MAFALDA": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/Mafalda_y_sus_Amigos___Facebook_qsmfar.jpg",
   "LA CELOSA DE CHEPE FORTUNA": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788833944/celosa_ya9wqh.webp",
   "SOFÍA VERGARA": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/340232946872765289_zncnun.jpg"
 };
