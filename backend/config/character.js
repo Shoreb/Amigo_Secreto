@@ -1,7 +1,7 @@
 const chList = {
   "TAYSON": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Mike_Tyson_2019_by_Glenn_Francis.jpg",
   "MIGUEL MATEUS": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/208_b6uxi2.webp",
-  "FRIDA KHALO": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/208_b6uxi2.webp",
+  "FRIDA KHALO": "https://images.squarespace-cdn.com/content/v1/5f10a7f0e4041a480cbbf0be/1600467127324-6HQ68262OG5LGVZOBN1J/Frida%2BKahlo%2Bdocumentary%2Bat%2BVIFF%2B2020",
   "JOE ARROYO": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788832968/joe_arroyo_rvlaqr.jpg",
   "COCO CHANEL": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788833944/cc_wnxi1x.jpg",
   "MICKEY MOUSE": "https://res.cloudinary.com/dcdbcpk3i/image/upload/v1788834309/micky_t2jsc7.png",
